@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Card from './Card'
-
+import network from '../utils/network';
+import Card from './Card';
 
 export class Popular extends Component {
 
@@ -13,9 +13,8 @@ export class Popular extends Component {
     }
 
     async componentDidMount() {
-        const result = await fetch('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b8e16ff25f44004fe2ab5dedc9e0453e')
-        const response = await result.json()
-        const movies = response.results
+
+        const movies = await network.getPopularMovies()
         this.setState({ movies })
         console.log(this.state.movies);
 
@@ -24,7 +23,9 @@ export class Popular extends Component {
     render() {
         return (
             <div>
-                Popular
+                <h1>
+                    Popular
+                </h1>
 
                 <div className="row">
 
