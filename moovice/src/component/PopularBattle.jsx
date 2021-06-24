@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import network from '../utils/network'
 import Card from './Card'
 
 class PopularBattle extends Component {
@@ -12,10 +13,8 @@ class PopularBattle extends Component {
     }
 
     async componentDidMount() {
-        const API_KEY = '669acbd46afbcc888543678ef2eb54d0'
-        const result = await fetch(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`)
-        const response = await result.json()
-        const movies = response.results
+
+        const movies = await network.getPopularMovies()
         this.setState({ movies })
     }
 

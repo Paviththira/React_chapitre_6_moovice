@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/Style.css';
 // import './Styles/Nav.css';
 import Footer from './component/Footer';
+import network from './utils/network';
 
 
 class App extends Component {
@@ -42,6 +43,7 @@ class App extends Component {
 
         </BrowserRouter>
         <Footer></Footer>
+        
       </div>
     )
   }
